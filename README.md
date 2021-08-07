@@ -5,6 +5,7 @@ Whenever I want to check if I can move the car without losing my space :(
 ## Instructions
 
 `python3 main.py`
+Results will go to http://localhost:5000/
 
 ## Example Output
 Today's Date is: 06 Aug 2021  
