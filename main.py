@@ -43,21 +43,24 @@ def index():
         match_date = match_date.strftime("%d %b %Y")
         current_date = current_date.strftime("%d %b %Y")
 
-        print("Today's Date is: " + str(current_date))
-        print("The next match is on: " + str(match_date))
+        todays_date = "Today's Date is: " + str(current_date)
+        next_match = "The next match is on: " + str(match_date)
 
         if(i["fixture"]["venue"]["id"] == venue):
-            if(match_date == currentDate):
+            if(match_date == current_date):
                 return render_template("index.html", RESULT= """UH-OH! The 
                 football is going to be playing at home. Do not move the 
-                car!""")
+                car!""",
+                TODAY_DATE= todays_date, NEXT_MATCH= next_match)
             else:
                 return render_template("index.html", RESULT="""WARNING: The  
                 next Rovers match will be at home on:""" + str(match_date) 
-                + """. Until then, you can move the car.""")
+                + """. Until then, you can move the car.""",
+                TODAY_DATE= todays_date, NEXT_MATCH= next_match)
         else:
             return render_template("index.html", RESULT="""The football is 
-            playing away for their next game. You are free to move the car.""")
+            playing away for their next game. You are free to move the car.""",
+                TODAY_DATE= todays_date, NEXT_MATCH= next_match)
 
 if __name__ == "__main__":
-    app.run("localhost")
+    app.run(debug=True)
